@@ -88,7 +88,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 2100) {
+      if (window.scrollY > 2000) {
         setHideText(false);
         setHideText2(false);
         setHideElement(false);
