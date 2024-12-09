@@ -10,6 +10,7 @@ import {
 } from "@mui/icons-material";
 import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
+import BottomNav from "@/components/BottomNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -151,7 +152,7 @@ export default function Home() {
     <div className="bg-[url('/images/banner2.jpeg')] bg-fixed bg-cover bg-center min-h-screen w-full">
       <div className="flex flex-col gap-[100vh]">
         <Navbar />
-        <div className={`min-h-screen w-full bg-white py-4 px-4 pb-14`}>
+        <div className={`min-h-screen w-full bg-white pt-4`}>
           <h2
             className={`${
               hideText ? "opacity-100" : "opacity-0"
@@ -159,6 +160,8 @@ export default function Home() {
           >
             Produk Kami
           </h2>
+
+          {/* DTF Machine */}
           <h2
             className={`${
               hideText2 ? "opacity-100" : "opacity-0"
@@ -169,7 +172,7 @@ export default function Home() {
           <div
             className={`${
               hideElement ? "opacity-100" : "opacity-0"
-            } transition-all ease-in-out duration-200 flex lg:flex-row flex-col gap-4 justify-center items-center lg:mt-[20vh] mt-0 w-full`}
+            } transition-all ease-in-out duration-200 px-4 flex lg:flex-row flex-col gap-4 justify-center items-center lg:mt-[20vh] mt-0 w-full`}
           >
             <div className="bg-white shadow rounded p-2 w-full flex flex-col justify-center items-center">
               <h5 className="text-center text-black text-xl font-bold">
@@ -214,6 +217,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Spareparts */}
           <h2
             className={`${
               hideText3 ? "opacity-100" : "opacity-0"
@@ -224,7 +228,7 @@ export default function Home() {
           <div
             className={`${
               hideElement2 ? "opacity-100" : "opacity-0"
-            } transition-all ease-in-out duration-200 flex gap-4 justify-center items-center lg:mt-[20vh] mt-0 w-full lg:flex-row flex-col`}
+            } transition-all px-4 ease-in-out duration-200 flex gap-4 justify-center items-center lg:mt-[20vh] mt-0 w-full lg:flex-row flex-col`}
           >
             <div className="bg-white shadow rounded p-2 w-full flex flex-col justify-center items-center">
               <h5 className="text-center text-black text-xl font-bold">
@@ -269,6 +273,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Bahan Baku */}
           <h2
             className={`${
               hideText4 ? "opacity-100" : "opacity-0"
@@ -279,7 +284,7 @@ export default function Home() {
           <div
             className={`${
               hideElement3 ? "opacity-100" : "opacity-0"
-            } transition-all ease-in-out duration-200 flex gap-4 justify-center items-center lg:mt-[20vh] mt-0 w-full lg:flex-row flex-col`}
+            } transition-all px-4 ease-in-out duration-200 flex gap-4 justify-center items-center lg:mt-[20vh] mt-0 w-full lg:flex-row flex-col`}
           >
             <div className="bg-white shadow rounded p-2 w-full flex flex-col justify-center items-center lg:gap-2 gap-2">
               <h5 className="text-center text-black text-xl font-bold">
@@ -322,6 +327,11 @@ export default function Home() {
                 <ChevronRight className="h-10 w-10" />
               </button>
             </div>
+          </div>
+
+          {/* Bottom Nav */}
+          <div className="mt-4">
+            <BottomNav />
           </div>
         </div>
         <div className="fixed bottom-4 right-4">
