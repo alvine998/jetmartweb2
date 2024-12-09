@@ -17,8 +17,10 @@ export default function Home() {
   const [hideText, setHideText] = useState<boolean>(false);
   const [hideText2, setHideText2] = useState<boolean>(false);
   const [hideText3, setHideText3] = useState<boolean>(false);
+  const [hideText4, setHideText4] = useState<boolean>(false);
   const [hideElement, setHideElement] = useState<boolean>(false);
   const [hideElement2, setHideElement2] = useState<boolean>(false);
+  const [hideElement3, setHideElement3] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +76,7 @@ export default function Home() {
         setHideText(false);
         setHideText2(false);
         setHideElement(false);
-        setHideText3(true)
+        setHideText3(true);
       } else {
         setHideText3(false);
       }
@@ -93,9 +95,50 @@ export default function Home() {
         setHideText2(false);
         setHideElement(false);
         setHideText3(false);
-        setHideElement2(true)
+        setHideElement2(true);
       } else {
         setHideElement2(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 2300) {
+        setHideText(false);
+        setHideText2(false);
+        setHideElement(false);
+        setHideText3(false);
+        setHideElement2(false);
+        setHideText4(true);
+      } else {
+        setHideText4(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 2800) {
+        setHideText(false);
+        setHideText2(false);
+        setHideElement(false);
+        setHideText3(false);
+        setHideElement2(false);
+        setHideText4(false);
+        setHideElement3(true);
+      } else {
+        setHideElement3(false);
       }
     };
 
@@ -108,7 +151,7 @@ export default function Home() {
     <div className="bg-[url('/images/banner2.jpeg')] bg-fixed bg-cover bg-center min-h-screen w-full">
       <div className="flex flex-col gap-[100vh]">
         <Navbar />
-        <div className={`min-h-screen w-full bg-white py-4 px-4`}>
+        <div className={`min-h-screen w-full bg-white py-4 px-4 pb-14`}>
           <h2
             className={`${
               hideText ? "opacity-100" : "opacity-0"
@@ -207,6 +250,61 @@ export default function Home() {
                 src="https://firebasestorage.googleapis.com/v0/b/jetmart-25181.appspot.com/o/27.%20Print%20Head%20Cover%20(1)%20(1).png?alt=media&token=93bc16e2-3e40-4af1-b6e8-f84667e32025"
                 alt="print2"
                 className="w-full lg:h-[500px] h-[200px]"
+              />
+              <button
+                className="bg-blue-700 text-white px-20 py-2 rounded hover:bg-blue-600 duration-200"
+                type="button"
+              >
+                Beli Sekarang
+              </button>
+            </div>
+            <div className="bg-white rounded p-2 lg:w-1/4 w-full flex flex-col justify-center items-center">
+              <button
+                className="bg-green-700 text-white px-4 py-2 rounded-full flex items-center hover:bg-green-600 duration-200"
+                type="button"
+              >
+                Lihat Lainnya
+                <ChevronRight className="h-10 w-10" />
+              </button>
+            </div>
+          </div>
+
+          <h2
+            className={`${
+              hideText4 ? "opacity-100" : "opacity-0"
+            } text-6xl font-bold text-center text-black transition-all ease-in-out duration-200`}
+          >
+            Bahan Baku
+          </h2>
+          <div
+            className={`${
+              hideElement3 ? "opacity-100" : "opacity-0"
+            } transition-all ease-in-out duration-200 flex gap-4 justify-center items-center lg:mt-[20vh] mt-0 w-full lg:flex-row flex-col`}
+          >
+            <div className="bg-white shadow rounded p-2 w-full flex flex-col justify-center items-center lg:gap-2 gap-2">
+              <h5 className="text-center text-black text-xl font-bold">
+                Jet Ink
+              </h5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/jetmart-25181.appspot.com/o/3.%20Tinta%20White%20(2).png?alt=media&token=971c60d0-21f0-4403-b7cd-86ff089578f0"
+                alt="print1"
+                className="w-full lg:h-[500px] h-[300px]"
+              />
+              <button
+                className="bg-blue-700 text-white px-20 py-2 rounded hover:bg-blue-600 duration-200"
+                type="button"
+              >
+                Beli Sekarang
+              </button>
+            </div>
+            <div className="bg-white shadow rounded p-2 w-full flex flex-col justify-center items-center lg:gap-2 gap-2">
+              <h5 className="text-center text-black text-xl font-bold">
+                Powder
+              </h5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/jetmart-25181.appspot.com/o/8.%20Powder%20(1)%20(1).png?alt=media&token=da86b0c3-e0f9-4d6a-8296-f8bbdeb058eb"
+                alt="print2"
+                className="w-full lg:h-[500px] h-[300px]"
               />
               <button
                 className="bg-blue-700 text-white px-20 py-2 rounded hover:bg-blue-600 duration-200"
